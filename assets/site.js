@@ -2,7 +2,7 @@
 (function () {
   // Fallback inbox for website inquiries. The real address is managed in the
   // CMS (content/site.json -> email) and overrides this once loaded.
-  const INQUIRY_FALLBACK = "kontakt@eb-immobilien.de";
+  const INQUIRY_FALLBACK = "info@eb-immobilien.de";
   function inquiryEmail() {
     return (window.EBSite && window.EBSite.email) || INQUIRY_FALLBACK;
   }
@@ -90,7 +90,7 @@
             <p style="font-size:.92rem;line-height:1.9;">
               <a href="tel:+496221914848" data-eb="office_phone">06221 914848</a><br>
               <a href="tel:+491726270270" data-eb="phone">+49 172 6270270</a><br>
-              <a href="mailto:kontakt@eb-immobilien.de" data-eb="email">kontakt@eb-immobilien.de</a>
+              <a href="mailto:info@eb-immobilien.de" data-eb="email">info@eb-immobilien.de</a>
             </p>
           </div>
           ${colHtml}
