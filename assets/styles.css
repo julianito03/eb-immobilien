@@ -657,3 +657,10 @@ td strong { color: var(--brown); }
 .split { gap: clamp(44px, 6vw, 92px); }
 .card { padding: clamp(30px, 2.8vw, 44px); }
 .card:hover { transform: translateY(-4px); box-shadow: 0 26px 56px rgba(56,51,47,.10); }
+
+/* ============================================================
+   v11 — sharper, crisper buttons + contact form alignment
+   ============================================================ */
+.btn { border-radius: 4px; }
+.nav-cta { border-radius: 4px !important; }
+.filter-btn { border-radius: 4px; }

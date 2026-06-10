@@ -177,10 +177,10 @@
     form.addEventListener("submit", (ev) => {
       ev.preventDefault();
       const data = new FormData(form);
-      const subject = (form.getAttribute("data-inquiry") || "Anfrage") + " – EB Immobilien";
+      const subject = (form.getAttribute("data-inquiry") || "Anfrage") + ", EB Immobilien";
       const lines = [];
       data.forEach((val, key) => { if (String(val).trim()) lines.push(key + ": " + val); });
-      lines.push("", "— eb-immobilien (Website)");
+      lines.push("", "Gesendet über eb-immobilien.com");
       const href =
         "mailto:" + inquiryEmail() +
         "?subject=" + encodeURIComponent(subject) +
@@ -194,7 +194,7 @@
   // Any element with [data-inquiry-link] becomes a mailto to the agency
   document.querySelectorAll("[data-inquiry-link]").forEach((a) => {
     const subj = a.getAttribute("data-inquiry-link") || "Anfrage";
-    a.setAttribute("href", "mailto:" + inquiryEmail() + "?subject=" + encodeURIComponent(subj + " – EB Immobilien"));
+    a.setAttribute("href", "mailto:" + inquiryEmail() + "?subject=" + encodeURIComponent(subj + ", EB Immobilien"));
   });
 
   // Scroll reveal
