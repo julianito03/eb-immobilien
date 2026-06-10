@@ -10,9 +10,7 @@
   const NAV = [
     { href: "index.html", de: "Start", en: "Home" },
     { href: "immobilien.html", de: "Immobilien", en: "Properties" },
-    { href: "verkaufen.html", de: "Verkaufen", en: "Sell" },
-    { href: "kaufen.html", de: "Kaufen & Mieten", en: "Buy & Rent" },
-    { href: "bewertung.html", de: "Bewertung", en: "Valuation" },
+    { href: "leistungen.html", de: "Leistungen", en: "Services" },
     { href: "ueber-mich.html", de: "Über mich", en: "About" },
     { href: "kontakt.html", de: "Kontakt", en: "Contact" },
   ];
@@ -59,9 +57,9 @@
       {
         h: "Leistungen", en: "Services",
         items: [
-          ["verkaufen.html", "Verkaufen", "Sell"],
-          ["kaufen.html", "Kaufen & Mieten", "Buy & Rent"],
-          ["bewertung.html", "Immobilienbewertung", "Property valuation"],
+          ["leistungen.html#verkaufen", "Verkaufen", "Sell"],
+          ["leistungen.html#kaufen", "Kaufen & Mieten", "Buy & Rent"],
+          ["leistungen.html#bewertung", "Immobilienbewertung", "Property valuation"],
         ],
       },
       {

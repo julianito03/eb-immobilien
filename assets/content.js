@@ -127,7 +127,8 @@
     if (d.images) Object.keys(d.images).forEach((k) => {
       const v = d.images[k];
       if (!v) return;
-      document.querySelectorAll(`[data-eb-bg="${k}"]`).forEach((el) => el.style.setProperty("--ph", `url('${v}')`));
+      const abs = new URL(v, location.href).href; // absolute → avoids CSS var() relative-to-stylesheet resolution
+      document.querySelectorAll(`[data-eb-bg="${k}"]`).forEach((el) => el.style.setProperty("--ph", `url('${abs}')`));
       document.querySelectorAll(`[data-eb-img="${k}"]`).forEach((el) => el.setAttribute("src", v));
     });
   }

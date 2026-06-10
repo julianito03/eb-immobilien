@@ -4,7 +4,7 @@
   "office_phone": "06221 914848",
   "address": "Rohrbacher Str. 68, 69115 Heidelberg",
   "images": {
-    "hero": "",
-    "cta": ""
+    "hero": "assets/img/real/heidelberg.jpg",
+    "cta": "assets/img/real/banner.jpg"
   }
 }
