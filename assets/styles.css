@@ -490,3 +490,94 @@ td strong { color: var(--brown); }
   .footer-grid { grid-template-columns: 1fr; }
   .step { grid-template-columns: 56px 1fr; gap: 18px; }
 }
+
+/* ============================================================
+   Lagom-style motion & full-bleed imagery (v5)
+   ============================================================ */
+
+/* Header hides on scroll-down, returns on scroll-up */
+.site-header { transition: transform .4s cubic-bezier(.4,0,.2,1), background .3s ease, box-shadow .3s ease; }
+.site-header.is-hidden { transform: translateY(-100%); }
+.site-header.is-scrolled { box-shadow: 0 8px 30px rgba(56,51,47,.07); }
+
+/* Immersive full-height hero */
+.hero { min-height: 84vh; display: flex; align-items: center; }
+.hero::before { transition: transform 1.6s cubic-bezier(.2,.6,.2,1); }
+.hero.is-ready::before { transform: scale(1.08); }
+
+/* Button fill-sweep on hover (left -> right) */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; transform: scaleX(0); transform-origin: left;
+  transition: transform .45s cubic-bezier(.5,0,.1,1); background: var(--taupe-dark);
+}
+.btn:hover::before { transform: scaleX(1); }
+.btn--primary:hover { background: var(--taupe); transform: translateY(-2px); }
+.btn--gold::before, .btn--light::before { background: var(--cream); }
+.btn--light:hover { background: #fff; }
+.btn--ghost::before { background: var(--taupe); }
+.btn--ghost:hover { color: #fff; border-color: var(--taupe); }
+.btn--ghost-light::before { background: rgba(255,255,255,.18); }
+.btn--primary::before { background: var(--brown); }
+
+/* Nav underline grows from the left on hover */
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: 7px; height: 1.5px; background: var(--taupe);
+  transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+@media (max-width: 1080px) { .nav-links a::after { display: none; } }
+
+/* Image reveal: scale-down + clip wipe as it enters the viewport */
+.media-card img, .fullbleed-strip img { transition: transform 1.4s cubic-bezier(.2,.6,.2,1); }
+.reveal .media-card img { transform: scale(1.18); }
+.reveal.in .media-card img { transform: scale(1); }
+.media-card { clip-path: inset(0 0 0 0); }
+.reveal .media-card { clip-path: inset(0 100% 0 0); transition: clip-path 1.1s cubic-bezier(.7,0,.2,1); }
+.reveal.in .media-card { clip-path: inset(0 0 0 0); }
+.media-card:hover img { transform: scale(1.05); }
+
+/* Full-bleed parallax image band */
+.fullbleed {
+  position: relative; min-height: clamp(320px, 42vw, 540px); display: grid; place-items: center;
+  text-align: center; color: #fff; overflow: hidden;
+}
+.fullbleed::before {
+  content: ""; position: absolute; inset: -2px; z-index: 0;
+  background-image: var(--ph); background-size: cover; background-position: center; background-attachment: fixed;
+}
+.fullbleed::after {
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, rgba(40,36,32,.5), rgba(40,36,32,.62));
+}
+.fullbleed .container { position: relative; z-index: 1; }
+.fullbleed .eyebrow { color: rgba(255,255,255,.9); }
+.fullbleed .eyebrow::before { background: #fff; }
+.fullbleed h2 { color: #fff; max-width: 18ch; margin: 0 auto; }
+.fullbleed p { color: rgba(255,255,255,.9); max-width: 52ch; margin: 14px auto 0; font-size: 1.1rem; }
+@media (hover: none), (max-width: 760px) { .fullbleed::before { background-attachment: scroll; } }
+
+/* Listing image subtle reveal */
+.listing .listing-photo img { transition: transform 1.4s cubic-bezier(.2,.6,.2,1); }
+.reveal .listing .listing-photo img { transform: scale(1.12); }
+.reveal.in .listing .listing-photo img { transform: scale(1); }
+.listing:hover .listing-photo img { transform: scale(1.06); }
+
+/* ---------- Polish pass (v5) ---------- */
+.hero h1 { font-weight: 900; }
+.hero-actions .btn { box-shadow: 0 10px 30px rgba(20,15,10,.22); }
+/* staggered reveal for grids */
+.grid--3 > .reveal:nth-child(2) { transition-delay: .09s; }
+.grid--3 > .reveal:nth-child(3) { transition-delay: .18s; }
+.facts > .reveal:nth-child(2) { transition-delay: .09s; }
+.facts > .reveal:nth-child(3) { transition-delay: .18s; }
+/* refined card hover */
+.card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+.card:hover { border-color: var(--line-strong); }
+.card .ico { transition: background .3s ease, transform .3s ease; }
+.card:hover .ico { background: var(--taupe); color: #fff; transform: rotate(-4deg); }
+/* listing price + badge polish */
+.listing-badge { box-shadow: 0 6px 18px rgba(40,36,32,.22); }
+/* smoother section dividers */
+.section--alt { border-top: 1px solid rgba(56,51,47,.05); border-bottom: 1px solid rgba(56,51,47,.05); }

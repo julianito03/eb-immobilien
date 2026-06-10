@@ -142,15 +142,30 @@
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   document.body.appendChild(toTop);
 
+  const header = document.querySelector(".site-header");
+  let lastY = window.scrollY;
   function onScroll() {
     const h = document.documentElement;
+    const y = h.scrollTop;
     const max = h.scrollHeight - h.clientHeight;
-    const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    const pct = max > 0 ? (y / max) * 100 : 0;
     bar.style.width = pct + "%";
-    toTop.classList.toggle("show", h.scrollTop > 500);
+    toTop.classList.toggle("show", y > 500);
+    if (header) {
+      header.classList.toggle("is-scrolled", y > 10);
+      // hide when scrolling down past the hero, reveal on scroll up
+      const goingDown = y > lastY && y > 240;
+      const navOpen = links && links.classList.contains("open");
+      header.classList.toggle("is-hidden", goingDown && !navOpen);
+    }
+    lastY = y;
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  // hero parallax-zoom kick-off once loaded
+  const heroEl = document.querySelector(".hero");
+  if (heroEl) requestAnimationFrame(() => heroEl.classList.add("is-ready"));
 
   // Animated count-up for hero stats
   function animateCount(el) {
