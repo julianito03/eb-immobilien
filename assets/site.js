@@ -26,7 +26,7 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="index.html">
-          <img class="brand-logo" src="assets/img/logo-mark.png" alt="EB Immobilien" width="52" height="52">
+          <img class="brand-logo" src="assets/img/logo-mark.png?v=2" alt="EB Immobilien" width="52" height="52">
           <span><span class="name">EB Immobilien</span><small data-en="since 1999 · Heidelberg">seit 1999 · Heidelberg</small></span>
         </a>
         <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span></button>
@@ -56,7 +56,7 @@
       <div class="container">
         <div class="footer-main">
           <a class="footer-brand" href="index.html">
-            <img class="brand-logo" src="assets/img/logo-mark.png" alt="EB Immobilien" width="48" height="48">
+            <img class="brand-logo" src="assets/img/logo-mark.png?v=2" alt="EB Immobilien" width="48" height="48">
             <span><span class="name">EB Immobilien</span><small data-en="since 1999 · Heidelberg">seit 1999 · Heidelberg</small></span>
           </a>
           <nav class="footer-links">${links}</nav>
