@@ -142,7 +142,7 @@
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   document.body.appendChild(toTop);
 
-  const header = document.querySelector(".site-header");
+  const headerEl = document.querySelector(".site-header");
   let lastY = window.scrollY;
   function onScroll() {
     const h = document.documentElement;
@@ -151,12 +151,12 @@
     const pct = max > 0 ? (y / max) * 100 : 0;
     bar.style.width = pct + "%";
     toTop.classList.toggle("show", y > 500);
-    if (header) {
-      header.classList.toggle("is-scrolled", y > 10);
+    if (headerEl) {
+      headerEl.classList.toggle("is-scrolled", y > 10);
       // hide when scrolling down past the hero, reveal on scroll up
       const goingDown = y > lastY && y > 240;
       const navOpen = links && links.classList.contains("open");
-      header.classList.toggle("is-hidden", goingDown && !navOpen);
+      headerEl.classList.toggle("is-hidden", goingDown && !navOpen);
     }
     lastY = y;
   }
@@ -233,4 +233,8 @@
     { threshold: 0.12 }
   );
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  // tell the head-script watchdog that reveals are wired up (prevents a blank
+  // page if this script ever fails to run)
+  document.documentElement.classList.add("reveal-ready");
 })();
