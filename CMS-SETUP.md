@@ -57,7 +57,7 @@ https://github.com/signup – E-Mail + Passwort, 2 Minuten.
 ## Wichtig vor dem „Live"-Gang
 Diese Angaben sind aktuell **Platzhalter** und sollten ersetzt werden:
 - **E-Mail-Adresse** der Agentur (`content/site.json` → `email`, derzeit
-  `info@eb-immobilien.de`). An diese Adresse gehen alle Formular-Anfragen.
+  `info@ebimmobilien.com`). An diese Adresse gehen alle Formular-Anfragen.
 - **Impressum** (`impressum.html`): Umsatzsteuer-ID, § 34c GewO / Aufsichtsbehörde.
 - **Datenschutz** (`datenschutz.html`): Datum und ggf. anwaltliche Prüfung.
 - **Über-mich-Text** und Objekt-Beispiele durch echte Inhalte ersetzen.

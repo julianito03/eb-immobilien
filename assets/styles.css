@@ -618,3 +618,42 @@ td strong { color: var(--brown); }
   .footer-main { flex-direction: column; align-items: flex-start; gap: 22px; }
   .footer-contact { text-align: left; }
 }
+
+/* ============================================================
+   v9 — crisp logo, inline hero stats, ticker, editorial polish
+   ============================================================ */
+/* Square, crisp logo (no rounded edges) */
+.brand-logo, .footer-brand .brand-logo { border-radius: 0; }
+
+/* Hero: stats sit inline, right next to the button (no divider line) */
+.hero-cta-row { display: flex; align-items: center; gap: clamp(26px, 4vw, 60px); flex-wrap: wrap; margin-top: 38px; }
+.hero-cta-row .hero-stats { margin: 0; padding: 0; border: none; max-width: none; grid-template-columns: repeat(2, auto); gap: clamp(26px, 4vw, 52px); }
+.hero-cta-row .hero-stats .num { font-size: clamp(1.7rem, 2.3vw, 2.4rem); }
+.hero-cta-row .hero-stats .lbl { margin-top: 5px; }
+@media (max-width: 560px) { .hero-cta-row { gap: 24px; } .hero-cta-row .hero-stats { gap: 30px; } }
+
+/* Moving trust ticker under the hero */
+.ticker { background: var(--brown); color: var(--cream); overflow: hidden; }
+.ticker-track { display: inline-flex; align-items: center; width: max-content; animation: ticker 34s linear infinite; padding: 15px 0; }
+.ticker span { font-family: var(--display); font-weight: 700; font-size: clamp(1rem, 1.5vw, 1.45rem); white-space: nowrap; padding: 0 clamp(18px, 2.2vw, 40px); color: var(--cream); }
+.ticker i { color: var(--taupe-light); font-style: normal; opacity: .65; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+
+/* Editorial index numbers on the service cards */
+.grid--3 { counter-reset: svc; }
+.grid--3 > .card { counter-increment: svc; }
+.grid--3 > .card::after {
+  content: "0" counter(svc); position: absolute; top: 26px; right: 30px;
+  font-family: var(--display); font-weight: 800; font-size: 1.15rem; color: var(--line-strong); letter-spacing: .02em;
+}
+
+/* Refined card + listing hover */
+.card { border-color: var(--line); }
+.listing-price { letter-spacing: -.01em; }
+.listing-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(40,36,32,.28)); opacity: 0; transition: opacity .3s ease; }
+.listing:hover .listing-photo::after { opacity: 1; }
+
+/* A touch more presence on the section headings */
+.section-head h2 { letter-spacing: -0.02em; }

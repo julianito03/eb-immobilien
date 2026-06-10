@@ -2,7 +2,7 @@
 (function () {
   // Fallback inbox for website inquiries. The real address is managed in the
   // CMS (content/site.json -> email) and overrides this once loaded.
-  const INQUIRY_FALLBACK = "info@eb-immobilien.de";
+  const INQUIRY_FALLBACK = "info@ebimmobilien.com";
   function inquiryEmail() {
     return (window.EBSite && window.EBSite.email) || INQUIRY_FALLBACK;
   }
@@ -62,7 +62,8 @@
           <nav class="footer-links">${links}</nav>
           <div class="footer-contact">
             <a href="tel:+496221914848" data-eb="office_phone">06221 914848</a>
-            <a href="mailto:info@eb-immobilien.de" data-eb="email">info@eb-immobilien.de</a>
+            <a href="tel:+491726270270" data-eb="phone">+49 172 6270270</a>
+            <a href="mailto:info@ebimmobilien.com" data-eb="email">info@ebimmobilien.com</a>
             <span data-eb="address">Rohrbacher Str. 68, 69115 Heidelberg</span>
           </div>
         </div>
