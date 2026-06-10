@@ -1,0 +1,72 @@
+{
+  "items": [
+    {
+      "title_de": "Stilvolle 3-Zimmer-Wohnung mit Balkon",
+      "title_en": "Stylish 3-room apartment with balcony",
+      "location": "Heidelberg-Weststadt",
+      "type_de": "Eigentumswohnung",
+      "type_en": "Apartment",
+      "category": "kauf",
+      "status": "available",
+      "price": "€ 545.000",
+      "rooms": "3",
+      "area": "84 m²",
+      "extra_de": "Balkon",
+      "extra_en": "Balcony",
+      "image": "",
+      "desc_de": "Hell und hochwertig saniert in beliebter Lage – mit Südbalkon, Parkett und moderner Einbauküche. Beispielobjekt zur Veranschaulichung.",
+      "desc_en": "Bright, high-quality renovation in a sought-after location – south-facing balcony, parquet floors and a modern fitted kitchen. Sample listing for illustration."
+    },
+    {
+      "title_de": "Modernes Reihenhaus mit Garten",
+      "title_en": "Modern townhouse with garden",
+      "location": "Heidelberg-Kirchheim",
+      "type_de": "Reihenhaus",
+      "type_en": "Townhouse",
+      "category": "kauf",
+      "status": "reserved",
+      "price": "€ 720.000",
+      "rooms": "5",
+      "area": "142 m²",
+      "extra_de": "Garten & Garage",
+      "extra_en": "Garden & garage",
+      "image": "",
+      "desc_de": "Familienfreundliches Reihenmittelhaus mit Südgarten, Garage und energieeffizienter Ausstattung. Beispielobjekt zur Veranschaulichung.",
+      "desc_en": "Family-friendly mid-terrace house with a south garden, garage and energy-efficient features. Sample listing for illustration."
+    },
+    {
+      "title_de": "Helle 2-Zimmer-Wohnung zur Miete",
+      "title_en": "Bright 2-room apartment to rent",
+      "location": "Heidelberg-Bergheim",
+      "type_de": "Mietwohnung",
+      "type_en": "Rental apartment",
+      "category": "miete",
+      "status": "available",
+      "price": "€ 1.180 / Monat",
+      "rooms": "2",
+      "area": "58 m²",
+      "extra_de": "Einbauküche",
+      "extra_en": "Fitted kitchen",
+      "image": "",
+      "desc_de": "Zentral gelegene Wohnung mit Einbauküche, Tageslichtbad und guter Verkehrsanbindung. Beispielobjekt zur Veranschaulichung.",
+      "desc_en": "Centrally located apartment with a fitted kitchen, daylight bathroom and excellent transport links. Sample listing for illustration."
+    },
+    {
+      "title_de": "Verkauftes Einfamilienhaus",
+      "title_en": "Sold detached house",
+      "location": "Dossenheim",
+      "type_de": "Einfamilienhaus",
+      "type_en": "Detached house",
+      "category": "kauf",
+      "status": "sold",
+      "price": "Verkauft",
+      "rooms": "6",
+      "area": "168 m²",
+      "extra_de": "Grundstück 520 m²",
+      "extra_en": "Plot 520 m²",
+      "image": "",
+      "desc_de": "Erfolgreich vermittelt innerhalb weniger Wochen. Referenzobjekt zur Veranschaulichung.",
+      "desc_en": "Successfully sold within a few weeks. Reference object for illustration."
+    }
+  ]
+}

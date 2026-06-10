@@ -1,0 +1,6 @@
+.DS_Store
+
+# Local build / image-generation artifacts (not part of the deployed site)
+__pycache__/
+*.log
+node_modules/

@@ -1,0 +1,121 @@
+# ───────────────────────────────────────────────────────────────
+# EB Immobilien – CMS configuration (Sveltia / Decap compatible)
+# Editors manage content here; saving commits to GitHub and the
+# site updates automatically. See ../CMS-SETUP.md for first-time setup.
+# ───────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: julianito03/eb-immobilien        # <-- GitHub repo (owner/name)
+  branch: main
+  # ── Optional one-click "Sign in with GitHub" ──
+  # Until an auth worker is set up, editors use "Sign In Using Access Token".
+  # base_url: https://eb-immobilien-cms.<your-subdomain>.workers.dev
+
+site_url: https://julianito03.github.io/eb-immobilien/
+display_url: https://julianito03.github.io/eb-immobilien/
+logo_url: https://julianito03.github.io/eb-immobilien/assets/cms-logo.svg
+locale: de
+
+media_folder: "assets/img"
+public_folder: "assets/img"
+
+collections:
+  # ── Quick help ────────────────────────────────────────────────
+  - name: hilfe
+    label: "ℹ️ Anleitung"
+    icon: help
+    editor: { preview: false }
+    files:
+      - name: hilfe
+        label: "So funktioniert's"
+        file: "content/help.md"
+        description: "Kurze Anleitung zum Bearbeiten der Website. (Nur zum Nachlesen.)"
+        fields:
+          - { label: "Anleitung", name: body, widget: markdown }
+
+  # ── Property listings ─────────────────────────────────────────
+  - name: immobilien
+    label: "Immobilien"
+    icon: home
+    editor: { preview: false }
+    files:
+      - name: listings
+        label: "Objekte"
+        file: "content/listings.json"
+        description: "Ihre Immobilien-Angebote. Mit „+" ein neues Objekt hinzufügen, Reihenfolge per Drag & Drop ändern (oberste zuerst)."
+        fields:
+          - label: "Objekte"
+            name: items
+            label_singular: "Objekt"
+            widget: list
+            summary: "{{fields.title_de}} – {{fields.location}} ({{fields.status}})"
+            fields:
+              - { label: "Titel (Deutsch)", name: title_de, widget: string }
+              - { label: "Titel (English)", name: title_en, widget: string, required: false }
+              - { label: "Lage / Ort", name: location, widget: string, hint: "z. B. Heidelberg-Weststadt" }
+              - label: "Status"
+                name: status
+                widget: select
+                default: "available"
+                options:
+                  - { label: "Verfügbar", value: "available" }
+                  - { label: "Reserviert", value: "reserved" }
+                  - { label: "Verkauft / Vermietet", value: "sold" }
+              - label: "Kategorie"
+                name: category
+                widget: select
+                default: "kauf"
+                options:
+                  - { label: "Kauf", value: "kauf" }
+                  - { label: "Miete", value: "miete" }
+              - { label: "Objektart (Deutsch)", name: type_de, widget: string, required: false, hint: "z. B. Eigentumswohnung" }
+              - { label: "Objektart (English)", name: type_en, widget: string, required: false }
+              - { label: "Preis", name: price, widget: string, required: false, hint: "z. B. € 545.000 oder € 1.180 / Monat – leer = „Preis auf Anfrage“" }
+              - { label: "Zimmer", name: rooms, widget: string, required: false }
+              - { label: "Wohnfläche", name: area, widget: string, required: false, hint: "z. B. 84 m²" }
+              - { label: "Zusatz (Deutsch)", name: extra_de, widget: string, required: false, hint: "z. B. Balkon, Garten" }
+              - { label: "Zusatz (English)", name: extra_en, widget: string, required: false }
+              - { label: "Foto", name: image, widget: image, required: false, hint: "Querformat wirkt am besten." }
+              - { label: "Beschreibung (Deutsch)", name: desc_de, widget: text, required: false }
+              - { label: "Beschreibung (English)", name: desc_en, widget: text, required: false }
+
+  # ── About / Über mich ─────────────────────────────────────────
+  - name: about
+    label: "Über mich"
+    icon: person
+    editor: { preview: false }
+    files:
+      - name: about
+        label: "Über mich"
+        file: "content/about.json"
+        description: "Ihr Profil auf der Seite „Über mich“ und im Startseiten-Abschnitt."
+        fields:
+          - { label: "Name", name: name, widget: string }
+          - { label: "Rolle (Deutsch)", name: role_de, widget: string }
+          - { label: "Rolle (English)", name: role_en, widget: string, required: false }
+          - { label: "Foto", name: photo, widget: image, required: false }
+          - { label: "Vorstellungstext (Deutsch)", name: bio_de, widget: text, hint: "Absätze mit einer Leerzeile trennen." }
+          - { label: "Vorstellungstext (English)", name: bio_en, widget: text, required: false }
+
+  # ── Contact & location ────────────────────────────────────────
+  - name: kontakt
+    label: "Kontakt & Standort"
+    icon: call
+    editor: { preview: false }
+    files:
+      - name: site
+        label: "Kontaktdaten & Bilder"
+        file: "content/site.json"
+        description: "Kontaktdaten (erscheinen im Seitenfuß & auf der Kontaktseite) und die zwei großen Website-Bilder."
+        fields:
+          - { label: "E-Mail", name: email, widget: string, hint: "Anfragen über die Website gehen an diese Adresse." }
+          - { label: "Telefon (Büro)", name: office_phone, widget: string }
+          - { label: "Telefon (Mobil)", name: phone, widget: string }
+          - { label: "Adresse", name: address, widget: string, hint: "Komma trennt automatisch die Zeilen, z. B. „Rohrbacher Str. 68, 69115 Heidelberg“." }
+          - label: "Website-Bilder"
+            name: images
+            widget: object
+            fields:
+              - { label: "Titelbild (Hero, Startseite)", name: hero, widget: image, required: false, hint: "Leer lassen = eingebaute Grafik." }
+              - { label: "Schlussaufruf-Bild", name: cta, widget: image, required: false }
