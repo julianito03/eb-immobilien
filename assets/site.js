@@ -29,8 +29,8 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="index.html">
-          <span class="brand-mark">EB</span>
-          <span>EB Immobilien<small>Elida Besic · Heidelberg</small></span>
+          <img class="brand-logo" src="assets/img/logo-mark.png" alt="EB Immobilien" width="46" height="46">
+          <span><span class="name">EB Immobilien</span><small data-en="since 1999 · Heidelberg">seit 1999 · Heidelberg</small></span>
         </a>
         <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span></button>
         <nav class="nav-links">
@@ -85,7 +85,7 @@
       <div class="container">
         <div class="footer-grid">
           <div>
-            <div class="footer-brand"><span class="brand-mark">EB</span> EB Immobilien</div>
+            <div class="footer-brand"><img src="assets/img/logo-full.png" alt="EB Immobilien – seit 1999" width="104"></div>
             <p style="font-size:.92rem;line-height:1.7;" data-eb="address">Rohrbacher Str. 68<br>69115 Heidelberg</p>
             <p style="font-size:.92rem;line-height:1.9;">
               <a href="tel:+496221914848" data-eb="office_phone">06221 914848</a><br>
