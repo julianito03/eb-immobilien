@@ -12,7 +12,6 @@
     { href: "immobilien.html", de: "Immobilien", en: "Properties" },
     { href: "leistungen.html", de: "Leistungen", en: "Services" },
     { href: "ueber-mich.html", de: "Über mich", en: "About" },
-    { href: "kontakt.html", de: "Kontakt", en: "Contact" },
   ];
 
   const current = location.pathname.split("/").pop() || "index.html";
@@ -27,7 +26,7 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="index.html">
-          <img class="brand-logo" src="assets/img/logo-mark.png" alt="EB Immobilien" width="46" height="46">
+          <img class="brand-logo" src="assets/img/logo-mark.png" alt="EB Immobilien" width="52" height="52">
           <span><span class="name">EB Immobilien</span><small data-en="since 1999 · Heidelberg">seit 1999 · Heidelberg</small></span>
         </a>
         <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><span></span></button>
@@ -44,58 +43,32 @@
   }
 
   function footer() {
-    const cols = [
-      {
-        h: "Navigation", en: "Navigation",
-        items: [
-          ["index.html", "Start", "Home"],
-          ["immobilien.html", "Immobilien", "Properties"],
-          ["ueber-mich.html", "Über mich", "About"],
-          ["kontakt.html", "Kontakt", "Contact"],
-        ],
-      },
-      {
-        h: "Leistungen", en: "Services",
-        items: [
-          ["leistungen.html#verkaufen", "Verkaufen", "Sell"],
-          ["leistungen.html#kaufen", "Kaufen & Mieten", "Buy & Rent"],
-          ["leistungen.html#bewertung", "Immobilienbewertung", "Property valuation"],
-        ],
-      },
-      {
-        h: "Rechtliches", en: "Legal",
-        items: [
-          ["impressum.html", "Impressum", "Imprint"],
-          ["datenschutz.html", "Datenschutz", "Privacy"],
-        ],
-      },
-    ];
-    const colHtml = cols
-      .map(
-        (c) =>
-          `<div><h4 data-en="${c.en}">${c.h}</h4><ul>${c.items
-            .map((i) => `<li><a href="${i[0]}" data-en="${i[2]}">${i[1]}</a></li>`)
-            .join("")}</ul></div>`
-      )
-      .join("");
+    const links = [
+      ["immobilien.html", "Immobilien", "Properties"],
+      ["leistungen.html", "Leistungen", "Services"],
+      ["ueber-mich.html", "Über mich", "About"],
+      ["kontakt.html", "Kontakt", "Contact"],
+      ["impressum.html", "Impressum", "Imprint"],
+      ["datenschutz.html", "Datenschutz", "Privacy"],
+    ].map((i) => `<a href="${i[0]}" data-en="${i[2]}">${i[1]}</a>`).join("");
     return `
     <footer class="site-footer">
       <div class="container">
-        <div class="footer-grid">
-          <div>
-            <div class="footer-brand"><img src="assets/img/logo-full.png" alt="EB Immobilien – seit 1999" width="104"></div>
-            <p style="font-size:.92rem;line-height:1.7;" data-eb="address">Rohrbacher Str. 68<br>69115 Heidelberg</p>
-            <p style="font-size:.92rem;line-height:1.9;">
-              <a href="tel:+496221914848" data-eb="office_phone">06221 914848</a><br>
-              <a href="tel:+491726270270" data-eb="phone">+49 172 6270270</a><br>
-              <a href="mailto:info@eb-immobilien.de" data-eb="email">info@eb-immobilien.de</a>
-            </p>
+        <div class="footer-main">
+          <a class="footer-brand" href="index.html">
+            <img class="brand-logo" src="assets/img/logo-mark.png" alt="EB Immobilien" width="48" height="48">
+            <span><span class="name">EB Immobilien</span><small data-en="since 1999 · Heidelberg">seit 1999 · Heidelberg</small></span>
+          </a>
+          <nav class="footer-links">${links}</nav>
+          <div class="footer-contact">
+            <a href="tel:+496221914848" data-eb="office_phone">06221 914848</a>
+            <a href="mailto:info@eb-immobilien.de" data-eb="email">info@eb-immobilien.de</a>
+            <span data-eb="address">Rohrbacher Str. 68, 69115 Heidelberg</span>
           </div>
-          ${colHtml}
         </div>
         <div class="footer-bottom">
-          <span>© 2026 EB Immobilien · Elida Besic · <span data-en="All rights reserved.">Alle Rechte vorbehalten.</span></span>
-          <span><a href="impressum.html" data-en="Imprint">Impressum</a> · <a href="datenschutz.html" data-en="Privacy">Datenschutz</a></span>
+          <span>© 2026 EB Immobilien · Elida Besic</span>
+          <span data-en="Heidelberg &amp; the Rhein-Neckar region">Heidelberg &amp; Rhein-Neckar</span>
         </div>
       </div>
     </footer>`;
